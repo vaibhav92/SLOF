@@ -77,6 +77,7 @@ test_all:
 driver:
 	@echo "******** Building $(BOARD) system ********"
 	@b=`echo $(BOARD) | grep "-"`; \
+	echo $b; \
 	if [ -n "$$b" ]; then \
 		subboard=$${b##*-}; \
 		board=$${b%%-*}; \

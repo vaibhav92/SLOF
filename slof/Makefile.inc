@@ -86,7 +86,7 @@ endif
 paflof: $(SLOFCMNDIR)/OF.lds $(SLOFCMNDIR)/ofw.o paflof.o $(SLOFCMNDIR)/entry.o \
 	helpers.o allocator.o romfs.o version.o OF.o nvramlog.o $(LLFWBRDDIR)/board_io.o \
 	$(LLFWBRDDIR)/io_generic_lib.o $(SLOF_LIBS)
-	$(CC) -T$(SLOFCMNDIR)/OF.lds $(SLOFCMNDIR)/ofw.o version.o paflof.o helpers.o allocator.o \
+	$(subst -mbig,,$(CC)) -T$(SLOFCMNDIR)/OF.lds $(SLOFCMNDIR)/ofw.o version.o paflof.o helpers.o allocator.o \
 	$(SLOFCMNDIR)/entry.o romfs.o OF.o nvramlog.o $(LLFWBRDDIR)/board_io.o \
 	$(LLFWBRDDIR)/io_generic_lib.o $(LDFLAGS) $(SLOF_LIBS) -o $@
 	#save a copy of paflof before stripping
