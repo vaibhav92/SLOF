@@ -238,6 +238,10 @@
         ENDCASE
 ;
 
+: pci-class-name-12 ( addr -- str len)
+        s" CXL Accelerator"
+;
+
 \ create a string holding the predefined Class-Code-Names
 : pci-class-name ( addr -- str len )
         dup pci-class@ 10 rshift CASE
@@ -259,6 +263,7 @@
         0C  OF pci-class-name-0F ENDOF
         0C  OF pci-class-name-10 ENDOF
         0C  OF pci-class-name-11 ENDOF
-        dup OF drop s" unknown"  ENDOF
+	12  OF pci-class-name-12 ENDOF
+        dup OF drop s" unknown"  ENDO
         ENDCASE
 ;
